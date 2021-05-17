@@ -24,11 +24,10 @@ module ALU(
     /* Se definen las entradas y salidas del modulo*/
     input [31:0] rs1, rs2,
     input [2:0] sel,
-    input clk,
     output reg [31:0] sal
     );
     
-    always @(posedge clk)
+    always @(*)
         begin
             case(sel)
                 0:

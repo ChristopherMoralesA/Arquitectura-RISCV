@@ -26,14 +26,12 @@ module SIM_ALU(
     reg [31:0] rs1, rs2;
     reg clk;
     reg [2:0] sel;
-    
     wire [31:0] sal;
     
     ALU uut(
         .rs1(rs1),
         .rs2(rs2),
         .sel(sel),
-        .clk(clk),
         .sal(sal)
     );
     
