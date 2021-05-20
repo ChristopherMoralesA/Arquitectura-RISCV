@@ -25,7 +25,7 @@ module DataMemory(RW, Din, ADDr, EN, Dout, CLK
     input [31:0] ADDr, Din;
     output reg [31:0] Dout;
     reg [31:0] memory_array[20:0];
-    reg [31:0] d_out;    
+    reg [31:0] d_out;  
         always @(posedge CLK)
         begin 
         if(EN == 1)
@@ -38,7 +38,7 @@ module DataMemory(RW, Din, ADDr, EN, Dout, CLK
             else                                /*Operación de escritura*/
             begin
                 memory_array[ADDr] = Din[31:0];
-                Dout[31:0] = Din[31:0];
+                Dout[31:0] = 32'b0;
             end
         end
         else
