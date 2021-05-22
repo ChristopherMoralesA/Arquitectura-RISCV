@@ -22,7 +22,6 @@ module test_IM(
     wire [31:0] RD;
     
     Instruction_Memory uut (
-    .CLK(CLK),
     .A_IM(A),
     .RD_IM(RD)
     );

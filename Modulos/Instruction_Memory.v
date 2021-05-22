@@ -15,7 +15,6 @@
 
 
 module Instruction_Memory(
-    input CLK,
     input [31:0] A_IM,
     output reg [31:0] RD_IM
     );
@@ -24,6 +23,6 @@ module Instruction_Memory(
     initial
         $readmemh("instrucciones_IM.mem",mem);
 
-    always@(posedge CLK)
-        RD_IM = mem[A_IM];
+    always@(*)
+        RD_IM = mem[A_IM >> 2];
 endmodule

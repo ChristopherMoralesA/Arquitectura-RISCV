@@ -100,16 +100,18 @@ module Register_File(
                 RF[29] = 0;
                 RF[30] = 0;
                 RF[31] = 0;
-                A_RF = RF[RA_RF];
-                B_RF = RF[RB_RF];
             end
         else
             begin
-                A_RF = RF[RA_RF];
-                B_RF = RF[RB_RF];
                 if (WE_RF == 1)
                     RF[RW_RF] = DW_RF;
             end
     end
+    
+    always@(*)
+        begin
+            A_RF = RF[RA_RF];
+            B_RF = RF[RB_RF];            
+        end
     
 endmodule
