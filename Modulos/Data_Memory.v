@@ -29,19 +29,28 @@ module DataMemory(RW, Din, ADDr, EN, Dout, CLK
         always @(posedge CLK)
         begin 
         if(EN == 1)
+        begin     
+            if(RW == 1)                               /*Operación de escritura*/
+            begin
+                memory_array[ADDr >> 2] = Din[31:0];
+                Dout[31:0] = 32'b0;
+            end  
+        end
+        end
+        always @(*)
+        begin 
+        if(EN == 1)
         begin    
             if(RW == 0)                         /*Operación de lectura */
             begin
-                d_out[31:0] = memory_array[ADDr];
+                d_out[31:0] = memory_array[ADDr >> 2];
                 Dout[31:0] = d_out[31:0];
             end  
-            else                                /*Operación de escritura*/
-            begin
-                memory_array[ADDr] = Din[31:0];
-                Dout[31:0] = 32'b0;
-            end
         end
         else
             Dout[31:0] = 32'b0;
-        end   
+        end  
+        begin
+        end 
+        
 endmodule
