@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module DataMemory(RW, Din, ADDr, EN, Dout, CLK
+module Data_Memory(RW, Din, ADDr, EN, Dout, CLK
     );   
     input RW, EN, CLK;
     input [31:0] ADDr, Din;
